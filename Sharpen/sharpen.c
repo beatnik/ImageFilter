@@ -25,23 +25,23 @@ gdImagePtr sharpen (gdImagePtr imageptr)
   { for (h = 0; h < dimy ; h++)
     { newrcolor = (
       5*gdImageRed(imageptr,gdImageGetPixel(imageptr,w,h))-
-      gdImageRed(imageptr,gdImageGetPixel(imageptr,w-1,h))+
-      gdImageRed(imageptr,gdImageGetPixel(imageptr,w,h-1))+
-      gdImageRed(imageptr,gdImageGetPixel(imageptr,w,h+1))+
+      gdImageRed(imageptr,gdImageGetPixel(imageptr,w-1,h))-
+      gdImageRed(imageptr,gdImageGetPixel(imageptr,w,h-1))-
+      gdImageRed(imageptr,gdImageGetPixel(imageptr,w,h+1))-
       gdImageRed(imageptr,gdImageGetPixel(imageptr,w+1,h)) ); 
 
       newgcolor = (
       5*gdImageGreen(imageptr,gdImageGetPixel(imageptr,w,h))-
-      gdImageGreen(imageptr,gdImageGetPixel(imageptr,w-1,h))+
-      gdImageGreen(imageptr,gdImageGetPixel(imageptr,w,h-1))+
-      gdImageGreen(imageptr,gdImageGetPixel(imageptr,w,h+1))+
+      gdImageGreen(imageptr,gdImageGetPixel(imageptr,w-1,h))-
+      gdImageGreen(imageptr,gdImageGetPixel(imageptr,w,h-1))-
+      gdImageGreen(imageptr,gdImageGetPixel(imageptr,w,h+1))-
       gdImageGreen(imageptr,gdImageGetPixel(imageptr,w+1,h)) ); 
 
       newbcolor = (
       5*gdImageBlue(imageptr,gdImageGetPixel(imageptr,w,h))-
-      gdImageBlue(imageptr,gdImageGetPixel(imageptr,w-1,h))+
-      gdImageBlue(imageptr,gdImageGetPixel(imageptr,w,h-1))+
-      gdImageBlue(imageptr,gdImageGetPixel(imageptr,w,h+1))+
+      gdImageBlue(imageptr,gdImageGetPixel(imageptr,w-1,h))-
+      gdImageBlue(imageptr,gdImageGetPixel(imageptr,w,h-1))-
+      gdImageBlue(imageptr,gdImageGetPixel(imageptr,w,h+1))-
       gdImageBlue(imageptr,gdImageGetPixel(imageptr,w+1,h)) ); 
 
       newrcolor = newrcolor > 255 ? 255 : (newrcolor < 0 ? 0 : newrcolor);
